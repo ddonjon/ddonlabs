@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github } from 'lucide-react';
+import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section';
 import TiltCard from '../components/TiltCard';
 
-// Define the shape of a team member to prevent TypeScript errors
 interface TeamMember {
   name: string;
   role: string;
@@ -13,13 +12,13 @@ interface TeamMember {
   linkedin?: string;
   twitter?: string;
   github?: string;
+  facebook?: string;
 }
 
 const About: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Enhanced observer to trigger color reveal on scroll
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -27,7 +26,7 @@ const About: React.FC = () => {
         }
       });
     }, { 
-      threshold: 0.2, // Trigger when 20% of the card is visible
+      threshold: 0.2, 
       rootMargin: '0px 0px -50px 0px' 
     });
 
@@ -44,7 +43,8 @@ const About: React.FC = () => {
       image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885080/WhatsApp_Image_2026-01-31_at_7.28.10_PM_j3ba0j.jpg",
       bio: "Product Manager and Cloud Specialist with a deep background in Cybersecurity, leading ddonlabs' technical vision.",
       linkedin: "https://linkedin.com/in/nannim-nansoh",
-      twitter: "https://twitter.com/ddonjon007"
+      twitter: "https://twitter.com/ddonjon007",
+      facebook: "https://facebook.com/YOUR_FACEBOOK_ID"
     },
     {
       name: "Magit Israel Bamshak",
@@ -64,7 +64,6 @@ const About: React.FC = () => {
     }
   ];
 
-  // Automatically generate Schema for Google
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -80,14 +79,14 @@ const About: React.FC = () => {
       "sameAs": [
         member.linkedin, 
         member.twitter, 
-        member.github
+        member.github,
+        member.facebook
       ].filter(Boolean)
     }))
   };
 
   return (
     <div className="pb-20">
-      {/* Styles for the reveal animation */}
       <style>{`
         .team-image {
           filter: grayscale(100%);
@@ -104,7 +103,6 @@ const About: React.FC = () => {
         }
       `}</style>
 
-      {/* Inject SEO Schema */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
@@ -124,7 +122,6 @@ const About: React.FC = () => {
         </div>
       </Section>
 
-      {/* Team Section */}
       <Section className="py-24 md:py-40">
         <div className="text-center mb-24 reveal">
           <span className="text-metadata mb-4 block">Founding Team</span>
@@ -154,7 +151,6 @@ const About: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Social Icons Row */}
                   <div className="flex gap-4 mt-6 pt-6 border-t border-white/10">
                     {member.linkedin && (
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
@@ -169,6 +165,11 @@ const About: React.FC = () => {
                     {member.github && (
                       <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                         <Github size={20} />
+                      </a>
+                    )}
+                    {member.facebook && (
+                      <a href={member.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                        <Facebook size={20} />
                       </a>
                     )}
                   </div>
