@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ddonlabs.com/sitemap.xml

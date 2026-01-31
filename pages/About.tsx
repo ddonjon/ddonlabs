@@ -1,8 +1,19 @@
 import React, { useEffect, useRef } from 'react';
-import Section from '../components/Section';
 import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Section from '../components/Section';
 import TiltCard from '../components/TiltCard';
+
+// Define the shape of a team member to prevent TypeScript errors
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  linkedin?: string;
+  twitter?: string;
+  github?: string;
+}
 
 const About: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -26,14 +37,14 @@ const About: React.FC = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  const teamMembers = [
+  const teamMembers: TeamMember[] = [
     {
       name: "Nannim Nansoh",
       role: "CEO, Cloud & DevOps Engineer",
       image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885080/WhatsApp_Image_2026-01-31_at_7.28.10_PM_j3ba0j.jpg",
       bio: "Product Manager and Cloud Specialist with a deep background in Cybersecurity, leading ddonlabs' technical vision.",
       linkedin: "https://linkedin.com/in/nannim-nansoh",
-      twitter: "https://twitter.com/nannimnansoh"
+      twitter: "https://twitter.com/ddonjon007"
     },
     {
       name: "Magit Israel Bamshak",
@@ -53,6 +64,7 @@ const About: React.FC = () => {
     }
   ];
 
+  // Automatically generate Schema for Google
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -64,25 +76,26 @@ const About: React.FC = () => {
       "name": member.name,
       "jobTitle": member.role,
       "image": member.image,
-      "sameAs": [member.linkedin, member.twitter, (member as any).github].filter(Boolean)
+      "description": member.bio,
+      "sameAs": [
+        member.linkedin, 
+        member.twitter, 
+        member.github
+      ].filter(Boolean)
     }))
   };
 
   return (
     <div className="pb-20">
+      {/* Styles for the reveal animation */}
       <style>{`
-        /* Custom reveal logic for team images */
         .team-image {
           filter: grayscale(100%);
           transition: filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s ease;
         }
-        
-        /* Mobile: Color reveal when scrolled into view (parent becomes .active) */
         .reveal.active .team-image {
           filter: grayscale(0%);
         }
-        
-        /* Desktop: Direct hover reinforcement for tactile feel */
         @media (min-width: 1024px) {
           .group:hover .team-image {
             filter: grayscale(0%) !important;
@@ -91,7 +104,7 @@ const About: React.FC = () => {
         }
       `}</style>
 
-      {/* SEO Structured Data for Team Indexing */}
+      {/* Inject SEO Schema */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
@@ -111,7 +124,7 @@ const About: React.FC = () => {
         </div>
       </Section>
 
-      {/* Team Section - High Fidelity SEO Grid */}
+      {/* Team Section */}
       <Section className="py-24 md:py-40">
         <div className="text-center mb-24 reveal">
           <span className="text-metadata mb-4 block">Founding Team</span>
@@ -139,6 +152,25 @@ const About: React.FC = () => {
                     <p className="text-white/40 text-sm leading-relaxed font-medium">
                       {member.bio}
                     </p>
+                  </div>
+
+                  {/* Social Icons Row */}
+                  <div className="flex gap-4 mt-6 pt-6 border-t border-white/10">
+                    {member.linkedin && (
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                        <Linkedin size={20} />
+                      </a>
+                    )}
+                    {member.twitter && (
+                      <a href={member.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                        <Twitter size={20} />
+                      </a>
+                    )}
+                    {member.github && (
+                      <a href={member.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                        <Github size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </TiltCard>
