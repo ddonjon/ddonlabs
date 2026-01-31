@@ -9,7 +9,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ 
   className = "", 
   size = 40, 
-  src = "https://i.postimg.cc/05tWdx8b/ddon.jpg" 
+  src = "https://res.cloudinary.com/dextb03l5/image/upload/v1769254556/ddon_xxt2hj.svg" 
 }) => {
   return (
     <div 

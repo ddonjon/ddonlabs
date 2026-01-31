@@ -9,6 +9,27 @@ import CaseStudies from './pages/CaseStudies';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 
+// NEW: Component to update the browser tab title
+const PageTitle = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const titles: { [key: string]: string } = {
+      '/': 'Home | ddonlabs',
+      '/about': 'About Us | ddonlabs',
+      '/ventures': 'Ventures | ddonlabs',
+      '/case-studies': 'Case Studies | ddonlabs',
+      '/contact': 'Contact | ddonlabs',
+      '/blog': 'Blog | ddonlabs'
+    };
+
+    const title = titles[pathname] || 'ddonlabs | AI & Spatial Intelligence';
+    document.title = title;
+  }, [pathname]);
+
+  return null;
+};
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -20,8 +41,9 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-black text-white selection:bg-blue-500/30">
+      <div className="flex flex-col min-h-screen bg-black text-white selection:bg-purple-500/30">
         <ScrollToTop />
+        <PageTitle />
         <Navbar />
         <main className="flex-grow pt-0">
           <Routes>

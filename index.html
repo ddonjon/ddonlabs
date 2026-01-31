@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>ddonlabs | AI & Spatial Intelligence</title>
+    <meta name="title" content="ddonlabs | AI & Spatial Intelligence">
+    <meta name="description" content="Pioneering the future of spatial intelligence and AI agents. We build automated systems, digital twins, and smart city solutions in Abuja, Nigeria.">
+    <meta name="keywords" content="AI agents, Spatial Intelligence, Digital Twins, Abuja, Urban Planning, Tech Lab, Nigeria, Automation">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ddonlabs">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ddonlabs.com/">
+    <meta property="og:title" content="ddonlabs | AI & Spatial Intelligence">
+    <meta property="og:description" content="Pioneering the future of spatial intelligence and AI agents. We build automated systems and digital twins.">
+    <!-- Using JPEG for OG image for maximum compatibility with platforms like WhatsApp and LinkedIn -->
+    <meta property="og:image" content="https://i.postimg.cc/05tWdx8b/ddon.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ddonlabs.com/">
+    <meta property="twitter:title" content="ddonlabs | AI & Spatial Intelligence">
+    <meta property="twitter:description" content="Pioneering the future of spatial intelligence and AI agents. We build automated systems and digital twins.">
+    <meta property="twitter:image" content="https://i.postimg.cc/05tWdx8b/ddon.jpg">
+
+    <link rel="canonical" href="https://ddonlabs.com/" />
+    <!-- SVG Favicon for high-density displays -->
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dextb03l5/image/upload/v1769254556/ddon_xxt2hj.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,10 +35,10 @@
     <style>
         :root {
             --bg-dark: #000000;
-            --glass-bg: rgba(8, 8, 12, 0.6);
+            --glass-bg: rgba(12, 8, 16, 0.6);
             --glass-border: rgba(255, 255, 255, 0.08);
-            --accent-purple: #a855f7;
-            --accent-blue: #3b82f6;
+            --accent-primary: #a855f7; /* Purple */
+            --accent-secondary: #ffffff; /* White */
             --liquid-glass-bg: rgba(255, 255, 255, 0.03);
             --liquid-glass-border: rgba(255, 255, 255, 0.1);
         }
@@ -38,7 +62,7 @@
             z-index: 9999;
         }
 
-        /* Glassmorphism Classes - Refined for High Fidelity */
+        /* Glassmorphism Classes */
         .glass-pill {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(24px) saturate(180%);
@@ -51,10 +75,10 @@
         }
 
         .glass-pill:hover {
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(168, 85, 247, 0.3);
             box-shadow: 
                 0 16px 48px -10px rgba(0, 0, 0, 0.6),
-                inset 0 0 16px rgba(255, 255, 255, 0.05);
+                inset 0 0 16px rgba(168, 85, 247, 0.05);
         }
 
         /* --- Liquid Glass Button Core --- */
@@ -81,7 +105,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Shimmer Animation for Liquid Effect */
         .btn-liquid-glass::after {
             content: "";
             position: absolute;
@@ -105,7 +128,6 @@
             100% { left: 150%; }
         }
 
-        /* --- Glass Shimmer Effect for Icons --- */
         @keyframes glass-light-sweep {
             0% { transform: translateX(-300%) skewX(-15deg); opacity: 0; }
             20% { opacity: 1; }
@@ -131,35 +153,33 @@
             z-index: 10;
         }
 
-        /* Explicitly removed hover transforms (no animation/motion) */
         .btn-liquid-glass:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.25);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
-        /* Variant: Primary Glow (Preserving color but using glass architecture) */
+        /* Primary Glow - Intense Purple */
         .btn-primary-glow {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
         }
         
         .btn-primary-glow:hover {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%);
-            border-color: rgba(168, 85, 247, 0.5);
-            box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(168, 85, 247, 0.2) 100%);
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
         }
 
-        /* Variant: Metallic Liquid (Updated to static glass) */
         .btn-metallic-liquid {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(59, 130, 246, 0.2) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
 
         .btn-metallic-liquid:hover {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.2) 0%, rgba(59, 130, 246, 0.3) 100%);
-            border-color: rgba(59, 130, 246, 0.5);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0.1) 100%);
+            border-color: rgba(168, 85, 247, 0.4);
         }
 
         .btn-secondary-outline {
@@ -172,12 +192,10 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Standardized button hover state across app to disable transforms */
         button:hover, a.btn-liquid-glass:hover, a.btn-primary-glow:hover, a.btn-secondary-outline:hover, a.btn-metallic-liquid:hover {
             transform: none !important;
         }
 
-        /* 3D Tilt Card Component Styles */
         .tilt-card-container {
             perspective: 1200px;
             transform-style: preserve-3d;
@@ -198,26 +216,17 @@
         .platforms-grid .tilt-card {
             border: 1px solid transparent;
             background: linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
-                        linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2)) border-box;
+                        linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(255, 255, 255, 0.1)) border-box;
         }
 
         .tilt-card-glow {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.08) 0%, transparent 60%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.1) 0%, transparent 60%);
             pointer-events: none;
             z-index: 2;
         }
 
-        .tilt-parallax {
-            transform: translateZ(40px);
-        }
-
-        .tilt-parallax-sm {
-            transform: translateZ(20px);
-        }
-
-        /* Hero Animations */
         @keyframes float {
             0% { transform: translateY(0px) rotateX(2deg) rotateY(2deg); }
             50% { transform: translateY(-15px) rotateX(4deg) rotateY(4deg); }
@@ -228,7 +237,6 @@
             animation: float 8s ease-in-out infinite;
         }
 
-        /* REFINED: Subtle slow-moving animated background */
         @keyframes ambient-flow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -236,9 +244,9 @@
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 45%),
-                        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.04) 0%, transparent 70%);
+            background: radial-gradient(circle at 20% 30%, rgba(168, 85, 247, 0.12) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
             background-size: 200% 200%;
             animation: ambient-flow 25s ease-in-out infinite;
             position: relative;
@@ -253,7 +261,7 @@
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #ffffff 40%, rgba(255,255,255,0.3) 100%);
+            background: linear-gradient(to right, #ffffff 40%, rgba(168, 85, 247, 0.4) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -279,7 +287,7 @@
         }
 
         .glass-card-3d {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transform-style: preserve-3d;
@@ -287,7 +295,7 @@
 
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: #331144; border-radius: 5px; }
     </style>
 <script type="importmap">
 {

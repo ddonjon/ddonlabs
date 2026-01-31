@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Section from '../components/Section';
 import { BLOG_POSTS } from '../constants';
@@ -16,11 +15,11 @@ const Blog: React.FC = () => {
             </p>
           </div>
           <div className="relative w-full md:w-80">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-purple-400/50" />
             <input 
               type="text" 
               placeholder="Search articles..." 
-              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-sm focus:outline-none focus:border-blue-500/50 transition-colors"
+              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-sm focus:outline-none focus:border-purple-500/50 transition-colors"
             />
           </div>
         </div>
@@ -37,12 +36,12 @@ const Blog: React.FC = () => {
                   className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="flex items-center gap-4 text-xs font-bold text-blue-500 uppercase tracking-widest mb-4">
+              <div className="flex items-center gap-4 text-xs font-bold text-purple-400 uppercase tracking-widest mb-4">
                 <span>{post.date}</span>
-                <span className="w-1 h-1 bg-blue-500 rounded-full" />
+                <span className="w-1 h-1 bg-purple-500 rounded-full" />
                 <span>{post.readTime}</span>
               </div>
-              <h2 className="text-3xl font-bold mb-4 group-hover:text-blue-400 transition-colors">
+              <h2 className="text-3xl font-bold mb-4 group-hover:text-purple-400 transition-colors">
                 {post.title}
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed mb-6">
@@ -58,7 +57,7 @@ const Blog: React.FC = () => {
       </Section>
 
       {/* Subscription Section */}
-      <Section className="bg-slate-950/50 border-y border-white/5">
+      <Section className="bg-white/[0.02] border-y border-white/5">
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-6">Join the Strategic Network</h3>
           <p className="text-slate-500 mb-8">
@@ -70,7 +69,7 @@ const Blog: React.FC = () => {
               placeholder="Your email address" 
               className="flex-grow bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-purple-500/50 transition-colors text-white"
             />
-            <button className="px-10 py-4 btn-primary text-white font-bold rounded-full transition-all whitespace-nowrap">
+            <button className="px-10 py-4 btn-primary-glow text-white font-bold rounded-full transition-all whitespace-nowrap">
               Subscribe
             </button>
           </form>

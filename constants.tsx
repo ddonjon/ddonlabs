@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Globe, Layout, BarChart3, Layers, Code, Cpu, Terminal, Zap } from 'lucide-react';
-// Updated import to include BlogPost
 import { Platform, UseCase, BlogPost } from './types';
 
 export const PLATFORMS: Platform[] = [
@@ -21,7 +19,7 @@ export const PLATFORMS: Platform[] = [
     name: 'Phoenix Exports',
     tagline: 'Logistics Tech Ecosystem',
     description: 'Digitizing global trade logistics through specialized supply chain automation.',
-    icon: <Globe className="w-5 h-5 text-blue-400" strokeWidth={1.5} />,
+    icon: <Globe className="w-5 h-5 text-purple-300" strokeWidth={1.5} />,
     link: '#/ventures',
     status: 'Ongoing',
     year: '2024',
@@ -32,7 +30,7 @@ export const PLATFORMS: Platform[] = [
     name: 'CityTwin',
     tagline: 'Smart Infrastructure Simulation',
     description: 'Advanced digital twin technology for municipal and private infrastructure management.',
-    icon: <Layers className="w-5 h-5 text-indigo-400" strokeWidth={1.5} />,
+    icon: <Layers className="w-5 h-5 text-purple-200" strokeWidth={1.5} />,
     link: '#/ventures',
     status: 'Experimental',
     year: '2025',
@@ -58,7 +56,6 @@ export const USE_CASES: UseCase[] = [
   }
 ];
 
-// Added BLOG_POSTS export to fix error in Blog.tsx
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,

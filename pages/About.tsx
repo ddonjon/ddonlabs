@@ -1,20 +1,24 @@
-
 import React, { useEffect, useRef } from 'react';
 import Section from '../components/Section';
-import { Target, Eye, Award, Code, Database, Zap, ArrowRight } from 'lucide-react';
+import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import TiltCard from '../components/TiltCard';
 
 const About: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
+    // Enhanced observer to trigger color reveal on scroll
     observerRef.current = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
         }
       });
-    }, { threshold: 0.1 });
+    }, { 
+      threshold: 0.2, // Trigger when 20% of the card is visible
+      rootMargin: '0px 0px -50px 0px' 
+    });
 
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observerRef.current?.observe(el));
@@ -22,8 +26,76 @@ const About: React.FC = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  const teamMembers = [
+    {
+      name: "Nannim Nansoh",
+      role: "CEO, Cloud & DevOps Engineer",
+      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885080/WhatsApp_Image_2026-01-31_at_7.28.10_PM_j3ba0j.jpg",
+      bio: "Product Manager and Cloud Specialist with a deep background in Cybersecurity, leading ddonlabs' technical vision.",
+      linkedin: "https://linkedin.com/in/nannim-nansoh",
+      twitter: "https://twitter.com/nannimnansoh"
+    },
+    {
+      name: "Magit Israel Bamshak",
+      role: "Project Manager",
+      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885029/6ba70f1e-c18a-4267-ba52-b04532483032_sqbggb.jpg",
+      bio: "Expert project manager with a robust background in Cybersecurity, ensuring structural integrity and operational excellence.",
+      linkedin: "https://linkedin.com/in/magit-israel",
+      github: "https://github.com/magitisrael"
+    },
+    {
+      name: "Simon Sunday Chigozie",
+      role: "Product Designer & Web Developer",
+      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885013/ChatGPT_Image_Jan_31_2026_07_42_34_PM_yp40zt.png",
+      bio: "High-fidelity UI/UX specialist and web developer focused on architecting seamless digital experiences and spatial interfaces.",
+      linkedin: "https://linkedin.com/in/simon-sunday",
+      twitter: "https://twitter.com/simonsunday"
+    }
+  ];
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ddonlabs",
+    "url": "https://ddonlabs.com",
+    "logo": "https://res.cloudinary.com/dextb03l5/image/upload/v1769254556/ddon_xxt2hj.svg",
+    "founders": teamMembers.map(member => ({
+      "@type": "Person",
+      "name": member.name,
+      "jobTitle": member.role,
+      "image": member.image,
+      "sameAs": [member.linkedin, member.twitter, (member as any).github].filter(Boolean)
+    }))
+  };
+
   return (
     <div className="pb-20">
+      <style>{`
+        /* Custom reveal logic for team images */
+        .team-image {
+          filter: grayscale(100%);
+          transition: filter 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s ease;
+        }
+        
+        /* Mobile: Color reveal when scrolled into view (parent becomes .active) */
+        .reveal.active .team-image {
+          filter: grayscale(0%);
+        }
+        
+        /* Desktop: Direct hover reinforcement for tactile feel */
+        @media (min-width: 1024px) {
+          .group:hover .team-image {
+            filter: grayscale(0%) !important;
+            transform: scale(1.05);
+          }
+        }
+      `}</style>
+
+      {/* SEO Structured Data for Team Indexing */}
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+
       <Section className="pt-48">
         <div className="max-w-5xl">
           <span className="text-metadata text-purple-400 mb-8 block reveal">Company Narrative</span>
@@ -36,6 +108,42 @@ const About: React.FC = () => {
           <Link to="/contact" className="btn-primary-glow px-12 py-5 rounded-full text-[13px] font-bold tracking-widest uppercase inline-flex items-center gap-3 reveal">
             Inquire for Partnership <ArrowRight size={16} />
           </Link>
+        </div>
+      </Section>
+
+      {/* Team Section - High Fidelity SEO Grid */}
+      <Section className="py-24 md:py-40">
+        <div className="text-center mb-24 reveal">
+          <span className="text-metadata mb-4 block">Founding Team</span>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter">The Architects.</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {teamMembers.map((member, idx) => (
+            <div key={idx} className="reveal" style={{ transitionDelay: `${idx * 0.15}s` }}>
+              <TiltCard>
+                <div className="p-8 h-full flex flex-col group">
+                  <div className="relative aspect-[4/5] mb-8 overflow-hidden rounded-2xl bg-white/5 border border-white/10">
+                    <img 
+                      src={member.image} 
+                      alt={`${member.name} - ${member.role} at ddonlabs`}
+                      className="w-full h-full object-cover team-image"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  </div>
+                  
+                  <div className="flex-grow">
+                    <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-purple-400 transition-colors">{member.name}</h3>
+                    <p className="text-metadata text-white/30 mb-6 lowercase">{member.role}</p>
+                    <p className="text-white/40 text-sm leading-relaxed font-medium">
+                      {member.bio}
+                    </p>
+                  </div>
+                </div>
+              </TiltCard>
+            </div>
+          ))}
         </div>
       </Section>
 
