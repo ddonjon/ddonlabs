@@ -22,23 +22,9 @@
   </url>
 
   <url>
-    <loc>https://ddonlabs.com/case-studies</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://ddonlabs.com/blog</loc>
-    <lastmod>2026-02-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://ddonlabs.com/contact</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
