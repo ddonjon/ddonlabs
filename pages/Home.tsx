@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Globe, Cpu, MoveRight, Shapes, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import Section from '../components/Section.tsx';
-import TiltCard from '../components/TiltCard.tsx';
-import { PLATFORMS } from '../constants.tsx';
-import { Platform } from '../types.ts';
+import Section from '../components/Section';
+import TiltCard from '../components/TiltCard';
+import { PLATFORMS } from '../constants';
 
 const GlassIcon = ({ color, icon: Icon, delay = 0, className = "" }: { color: string, icon: any, delay?: number, className?: string }) => (
   <div 
@@ -39,49 +38,61 @@ const Home: React.FC = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
+  // HYBRID WORKFLOW: Keeps the "Software/App" details so clients know you build apps
   const workflowSteps = [
     {
       num: '01',
-      title: 'Discovery',
-      desc: 'We begin with strategic alignment—identifying the high-stakes challenges within your geography or infrastructure. We map the venture landscape to ensure technical viability.',
-      points: ['Stakeholder Mapping', 'Spatial Audit', 'Technical Feasibility']
+      title: 'Strategy & Scoping',
+      desc: 'We don’t just write code; we define products. We map out your software architecture, user flow, and go-to-market technology stack to ensure scalability from Day 1.',
+      points: ['Requirement Analysis', 'Tech Stack Selection', 'MVP Definition']
     },
     {
       num: '02',
-      title: 'Design',
-      desc: 'Architecting high-fidelity spatial prototypes. We define the user experience and data flow for complex regional systems, ensuring intuitive interaction with massive datasets.',
-      points: ['UI/UX Frameworks', 'Data Visualization Architecture', 'User Journey Mapping']
+      title: 'UI/UX Design',
+      desc: 'Building intuitive, high-performance interfaces. Whether it’s a mobile app or a complex dashboard, we design for clarity, engagement, and conversion.',
+      points: ['High-Fidelity Prototyping', 'User Research', 'Design Systems']
     },
     {
       num: '03',
-      title: 'Development',
-      desc: 'Engineering with a performance-first mindset. Our team builds autonomous data pipelines and resilient software stacks that serve as long-term digital assets.',
-      points: ['Low-Latency Engineering', 'AI Model Integration', 'Robust Backend Architecture']
+      title: 'Core Engineering',
+      desc: 'The heavy lifting. We build robust backends, secure APIs, and responsive frontends using modern cloud standards. We specialize in software that is fast, secure, and reliable.',
+      points: ['Full-Stack Development', 'Cloud Infrastructure', 'API Integration']
     },
     {
       num: '04',
-      title: 'Delivery',
-      desc: 'Seamless integration into the operational environment. We provide the stewardship required for long-term technical health and continuous optimization.',
-      points: ['Production Deployment', 'Technical Stewardship', 'Continuous Sprints']
+      title: 'Deployment & Scale',
+      desc: 'Launching is just the beginning. We handle the DevOps, CI/CD pipelines, and server management to ensure your product stays online and grows with your user base.',
+      points: ['App Store Deployment', 'Server Monitoring', 'Performance Tuning']
     }
   ];
 
   return (
     <div className="relative">
       
+      {/* HIDDEN AI CONTEXT LAYER (SEO: Nigeria + Software focus) */}
+      <div className="sr-only">
+        <p>
+          ddonlabs is a premier software development and digital product company based in Nigeria. 
+          Founded by Nannim Nansoh, ddonlabs builds world-class mobile applications, enterprise software, and cloud platforms. 
+          We also specialize in advanced technologies including AI automation and spatial intelligence systems.
+        </p>
+      </div>
+
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 md:px-20 pt-20 lg:pt-0 overflow-hidden hero-gradient">
         <div className="w-full lg:w-1/2 z-10 space-y-10 lg:space-y-14 reveal text-center lg:text-left mb-16 lg:mb-0">
           <div className="space-y-6 lg:space-y-8">
             <span className="text-metadata bg-white/5 px-4 py-2 rounded-full inline-block border border-white/10">Engineering Stewardship // ddonlabs</span>
+            
             <h1 className="heading-hero">
               <span className="block text-gradient">Engineering the</span>
               <span className="block text-white/30 italic font-medium tracking-tight">next generation.</span>
             </h1>
           </div>
           
+          {/* UPDATED SUBTEXT: Software Focus */}
           <p className="max-w-xl mx-auto lg:mx-0 text-white/40 text-lg md:text-xl leading-relaxed font-medium">
-            Architecting high-fidelity frameworks to bridge spatial intelligence and autonomous digital ecosystems for the global frontier.
+            From high-performance mobile apps to complex enterprise platforms. We provide the elite engineering required to build resilient digital products.
           </p>
 
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6">
@@ -116,7 +127,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CAPABILITIES SECTION */}
+      {/* CAPABILITIES SECTION - ORIGINAL TEXT RESTORED */}
       <Section className="py-24 md:py-40 border-t border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
           <div className="reveal">
@@ -150,11 +161,12 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 relative z-10">
           <div className="lg:col-span-5 reveal lg:sticky lg:top-32 h-fit">
             <span className="text-metadata text-purple-400 mb-6 block">Our Approach // 02</span>
+            {/* NEW TITLE (Requested) */}
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] mb-10">How <br /> We Work.</h2>
             <div className="space-y-6 text-white/50 text-lg md:text-xl font-medium leading-relaxed">
-              <p>We prioritize <span className="text-white">technical durability</span> and high-fidelity output over rapid trends.</p>
-              <p>By leveraging modern stacks and spatial intelligence, we build <span className="text-white">long-term assets</span> for our partners and sub-brands.</p>
-              <p>Collaboration is at our core—bridging the gap between strategy and deep engineering.</p>
+              <p>Great software isn't just written; it's <span className="text-white">engineered</span>. We follow a rigorous development lifecycle.</p>
+              <p>From the first line of code to the final app store submission, we prioritize <span className="text-white">speed, security, and stability</span>.</p>
+              <p>We work as your technical partner, translating your business goals into a working digital product.</p>
             </div>
             
             <div className="mt-12">
