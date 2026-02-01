@@ -38,7 +38,6 @@ const Home: React.FC = () => {
     return () => observerRef.current?.disconnect();
   }, []);
 
-  // HYBRID WORKFLOW: Keeps the "Software/App" details so clients know you build apps
   const workflowSteps = [
     {
       num: '01',
@@ -49,7 +48,7 @@ const Home: React.FC = () => {
     {
       num: '02',
       title: 'UI/UX Design',
-      desc: 'Building intuitive, high-performance interfaces. Whether it’s a mobile app or a complex dashboard, we design for clarity, engagement, and conversion.',
+      desc: 'Building intuitive, high-performance interfaces. Whether it’s a consumer-facing product or a complex dashboard, we design for clarity, engagement, and conversion.',
       points: ['High-Fidelity Prototyping', 'User Research', 'Design Systems']
     },
     {
@@ -62,7 +61,7 @@ const Home: React.FC = () => {
       num: '04',
       title: 'Deployment & Scale',
       desc: 'Launching is just the beginning. We handle the DevOps, CI/CD pipelines, and server management to ensure your product stays online and grows with your user base.',
-      points: ['App Store Deployment', 'Server Monitoring', 'Performance Tuning']
+      points: ['Production Deployment', 'Server Monitoring', 'Performance Tuning']
     }
   ];
 
@@ -72,8 +71,8 @@ const Home: React.FC = () => {
       {/* HIDDEN AI CONTEXT LAYER (SEO: Nigeria + Software focus) */}
       <div className="sr-only">
         <p>
-          ddonlabs is a premier software development and digital product company based in Nigeria. 
-          Founded by Nannim Nansoh, ddonlabs builds world-class mobile applications, enterprise software, and cloud platforms. 
+          ddonlabs is a premier software engineering and venture studio based in Nigeria. 
+          Founded by Nannim Nansoh, ddonlabs architects high-fidelity digital products, enterprise software, and cloud platforms. 
           We also specialize in advanced technologies including AI automation and spatial intelligence systems.
         </p>
       </div>
@@ -90,9 +89,8 @@ const Home: React.FC = () => {
             </h1>
           </div>
           
-          {/* UPDATED SUBTEXT: Software Focus */}
           <p className="max-w-xl mx-auto lg:mx-0 text-white/40 text-lg md:text-xl leading-relaxed font-medium">
-            From high-performance mobile apps to complex enterprise platforms. We provide the elite engineering required to build resilient digital products.
+            From high-performance digital products to complex enterprise platforms. We provide the elite engineering required to build resilient software ecosystems.
           </p>
 
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 md:gap-6">
@@ -127,14 +125,14 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CAPABILITIES SECTION - ORIGINAL TEXT RESTORED */}
+      {/* CAPABILITIES SECTION */}
       <Section className="py-24 md:py-40 border-t border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-16">
           <div className="reveal">
             <span className="text-metadata text-purple-400 mb-4 block">01 / Product</span>
             <h3 className="text-2xl md:text-3xl font-black mb-4 tracking-tighter">Venture Incubation</h3>
             <p className="text-white/40 leading-relaxed font-medium text-[14px] md:text-[15px]">
-              We provide the elite engineering required for high-stakes digital products, bridging concepts to production-ready ecosystems.
+              We architect high-performance digital platforms and native interfaces. Clean code, scalable architecture, and seamless user experiences.
             </p>
           </div>
           <div className="reveal" style={{ transitionDelay: '0.1s' }}>
@@ -148,7 +146,7 @@ const Home: React.FC = () => {
             <span className="text-metadata text-purple-200 mb-4 block">03 / Infrastructure</span>
             <h3 className="text-2xl md:text-3xl font-black mb-4 tracking-tighter">Regional Stewardship</h3>
             <p className="text-white/40 leading-relaxed font-medium text-[14px] md:text-[15px]">
-              Strategic engineering for regional architecture, focusing on low-latency data pipelines and sustainable tech infrastructure.
+              Secure server management and cloud deployment. We ensure your software can handle thousands of users without crashing or slowing down.
             </p>
           </div>
         </div>
@@ -161,11 +159,10 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 relative z-10">
           <div className="lg:col-span-5 reveal lg:sticky lg:top-32 h-fit">
             <span className="text-metadata text-purple-400 mb-6 block">Our Approach // 02</span>
-            {/* NEW TITLE (Requested) */}
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] mb-10">How <br /> We Work.</h2>
             <div className="space-y-6 text-white/50 text-lg md:text-xl font-medium leading-relaxed">
               <p>Great software isn't just written; it's <span className="text-white">engineered</span>. We follow a rigorous development lifecycle.</p>
-              <p>From the first line of code to the final app store submission, we prioritize <span className="text-white">speed, security, and stability</span>.</p>
+              <p>From the first line of code to the final deployment, we prioritize <span className="text-white">speed, security, and stability</span>.</p>
               <p>We work as your technical partner, translating your business goals into a working digital product.</p>
             </div>
             
