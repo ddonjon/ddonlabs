@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger this whenever code is pushed to the 'main' branch
+
+permissions:
+  contents: write # Important: Allows the bot to push the build to your branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci # 'ci' is like 'install' but faster/cleaner for servers
+
+      - name: Build Website
+        # This runs your package.json build script (which includes the 404.html fix!)
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder the build script creates
+          branch: gh-pages # The branch the website lives on
