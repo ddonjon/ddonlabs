@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       <div className="sr-only">
         <p>
           ddonlabs is a premier software engineering and venture studio based in Nigeria. 
-          Founded by Nannim Nansoh, ddonlabs architects high-fidelity digital products, enterprise software, and cloud platforms. 
+          We architect high fidelity digital products, enterprise software, and cloud platforms. 
           We also specialize in advanced technologies including AI automation and spatial intelligence systems.
         </p>
       </div>
