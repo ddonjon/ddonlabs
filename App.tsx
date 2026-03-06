@@ -14,16 +14,18 @@ const PageTitle = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // UPDATED: High-end SEO titles to replace the generic ones
     const titles: { [key: string]: string } = {
-      '/': 'Home | ddonlabs',
-      '/about': 'About Us | ddonlabs',
-      '/ventures': 'Ventures | ddonlabs',
-      '/case-studies': 'Case Studies | ddonlabs',
-      '/contact': 'Contact | ddonlabs',
-      '/blog': 'Blog | ddonlabs'
+      '/': 'ddonlabs | Premier Software Engineering & Venture Lab',
+      '/about': 'Company Narrative | ddonlabs',
+      '/ventures': 'Project Archive | ddonlabs',
+      '/case-studies': 'Archived Studies | ddonlabs',
+      '/contact': 'Start Engagement | ddonlabs',
+      '/blog': 'Insights & Strategy | ddonlabs'
     };
 
-    const title = titles[pathname] || 'ddonlabs | AI & Spatial Intelligence';
+    // UPDATED: A stronger fallback title
+    const title = titles[pathname] || 'ddonlabs | Engineering Stewardship';
     document.title = title;
   }, [pathname]);
 

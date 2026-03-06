@@ -40,7 +40,7 @@ const About: React.FC = () => {
     {
       name: "Nannim Nansoh",
       role: "CEO, Cloud & DevOps Engineer",
-      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885080/WhatsApp_Image_2026-01-31_at_7.28.10_PM_j3ba0j.jpg",
+      image: "/nannim-nansoh.jpeg",
       bio: "Product Manager and Cloud Specialist with a deep background in Cybersecurity, leading ddonlabs' technical vision.",
       linkedin: "https://linkedin.com/in/nannim-nansoh",
       twitter: "https://twitter.com/ddonjon007",
@@ -49,7 +49,7 @@ const About: React.FC = () => {
     {
       name: "Magit Israel Bamshak",
       role: "Project Manager",
-      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885029/6ba70f1e-c18a-4267-ba52-b04532483032_sqbggb.jpg",
+      image: "/magit-israel.jpg",
       bio: "Expert project manager with a robust background in Cybersecurity, ensuring structural integrity and operational excellence.",
       linkedin: "https://linkedin.com/in/magit-israel",
       github: "https://github.com/magitisrael"
@@ -57,33 +57,12 @@ const About: React.FC = () => {
     {
       name: "Simon Sunday Chigozie",
       role: "Product Designer & Web Developer",
-      image: "https://res.cloudinary.com/dextb03l5/image/upload/v1769885013/ChatGPT_Image_Jan_31_2026_07_42_34_PM_yp40zt.png",
+      image: "/simon-sunday.png",
       bio: "High-fidelity UI/UX specialist and web developer focused on architecting seamless digital experiences and spatial interfaces.",
       linkedin: "https://linkedin.com/in/simon-sunday",
       twitter: "https://twitter.com/simonsunday"
     }
   ];
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ddonlabs",
-    "url": "https://ddonlabs.com",
-    "logo": "https://res.cloudinary.com/dextb03l5/image/upload/v1769254556/ddon_xxt2hj.svg",
-    "founders": teamMembers.map(member => ({
-      "@type": "Person",
-      "name": member.name,
-      "jobTitle": member.role,
-      "image": member.image,
-      "description": member.bio,
-      "sameAs": [
-        member.linkedin, 
-        member.twitter, 
-        member.github,
-        member.facebook
-      ].filter(Boolean)
-    }))
-  };
 
   return (
     <div className="pb-20">
@@ -102,10 +81,6 @@ const About: React.FC = () => {
           }
         }
       `}</style>
-
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
 
       <Section className="pt-48">
         <div className="max-w-5xl">
