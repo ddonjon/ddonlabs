@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet for SEO
+import { Helmet } from 'react-helmet-async'; 
 import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github, Facebook } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // NEW: Import useNavigate
 import Section from '../components/Section';
 import TiltCard from '../components/TiltCard';
 
@@ -10,6 +10,7 @@ interface TeamMember {
   role: string;
   image: string;
   bio: string;
+  path: string; 
   linkedin?: string;
   twitter?: string;
   github?: string;
@@ -18,6 +19,7 @@ interface TeamMember {
 
 const About: React.FC = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const navigate = useNavigate(); // NEW: Initialize navigation
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
@@ -43,15 +45,17 @@ const About: React.FC = () => {
       role: "CEO, Cloud & DevOps Engineer",
       image: "/nannim-nansoh.jpeg",
       bio: "Product Manager and Cloud Specialist with a deep background in Cybersecurity, leading ddonlabs' technical vision.",
+      path: "/team/nannim-nansoh",
       linkedin: "https://linkedin.com/in/nannim-nansoh",
       twitter: "https://twitter.com/ddonjon007",
-      facebook: "https://facebook.com/YOUR_FACEBOOK_ID"
+      facebook: "https://www.facebook.com/share/1GWjzXmiSV/?mibextid=wwXIfr"
     },
     {
       name: "Magit Israel Bamshak",
       role: "Project Manager",
       image: "/magit-israel.jpg",
       bio: "Expert project manager with a robust background in Cybersecurity, ensuring structural integrity and operational excellence.",
+      path: "/team/magit-israel",
       linkedin: "https://linkedin.com/in/magit-israel",
       github: "https://github.com/magitisrael"
     },
@@ -60,6 +64,7 @@ const About: React.FC = () => {
       role: "Product Designer & Web Developer",
       image: "/simon-sunday.png",
       bio: "High-fidelity UI/UX specialist and web developer focused on architecting seamless digital experiences and spatial interfaces.",
+      path: "/team/simon-sunday",
       linkedin: "https://linkedin.com/in/simon-sunday",
       twitter: "https://twitter.com/simonsunday"
     }
@@ -68,12 +73,11 @@ const About: React.FC = () => {
   return (
     <div className="pb-20">
       
-      {/* NEW: About Page SEO Payload & Breadcrumb Schema */}
       <Helmet>
         <title>About ddonlabs | Venture Studio for High-Impact Software</title>
         <meta name="description" content="Discover how ddonlabs architects high-fidelity digital products and spatial intelligence systems. Learn about our venture studio model and engineering doctrine." />
         <link rel="canonical" href="https://ddonlabs.com/about" />
-        {/* NEW: Breadcrumb Schema */}
+        
         <script type="application/ld+json">
           {`
             {
@@ -135,8 +139,9 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {teamMembers.map((member, idx) => (
             <div key={idx} className="reveal" style={{ transitionDelay: `${idx * 0.15}s` }}>
-              <TiltCard>
-                <div className="p-8 h-full flex flex-col group">
+              {/* NEW: Make the whole card clickable and turn cursor to pointer */}
+              <TiltCard onClick={() => navigate(member.path)}>
+                <div className="p-8 h-full flex flex-col group cursor-pointer">
                   <div className="relative aspect-[4/5] mb-8 overflow-hidden rounded-2xl bg-white/5 border border-white/10">
                     <img 
                       src={member.image} 
@@ -147,15 +152,23 @@ const About: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                   </div>
                   
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-purple-400 transition-colors">{member.name}</h3>
+                  <div className="flex-grow flex flex-col">
+                    <div className="group-hover:text-purple-400 transition-colors w-fit">
+                      <h3 className="text-2xl font-bold tracking-tight mb-2">{member.name}</h3>
+                    </div>
                     <p className="text-metadata text-white/30 mb-6 lowercase">{member.role}</p>
-                    <p className="text-white/40 text-sm leading-relaxed font-medium">
+                    <p className="text-white/40 text-sm leading-relaxed font-medium mb-6 flex-grow">
                       {member.bio}
                     </p>
+                    
+                    {/* Changed from Link to a div since the card handles the click */}
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-purple-400 group-hover:text-white transition-colors flex items-center gap-2 mb-2 w-fit">
+                      View Profile <ArrowRight size={14} />
+                    </div>
                   </div>
 
-                  <div className="flex gap-4 mt-6 pt-6 border-t border-white/10">
+                  {/* NEW: Stop propagation here so clicking a social link doesn't also click the card */}
+                  <div className="flex gap-4 mt-6 pt-6 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
                     {member.linkedin && (
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                         <Linkedin size={20} />

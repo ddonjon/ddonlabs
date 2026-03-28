@@ -33,7 +33,10 @@
       "/",
       "/about",
       "/ventures",
-      "/contact"
+      "/contact",
+      "/team/nannim-nansoh",
+      "/team/magit-israel",
+      "/team/simon-sunday"
     ],
     "skipThirdPartyRequests": true,
     "puppeteerArgs": [
