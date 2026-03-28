@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW
 import Section from '../components/Section';
 import { BLOG_POSTS } from '../constants';
 import { Search } from 'lucide-react';
@@ -6,6 +7,13 @@ import { Search } from 'lucide-react';
 const Blog: React.FC = () => {
   return (
     <div className="pb-20">
+      
+      {/* NEW: Tell Google to ignore this page until real content is written */}
+      <Helmet>
+        <title>Insights & Strategy | ddonlabs</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
       <Section className="pt-40 border-b border-white/5">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">

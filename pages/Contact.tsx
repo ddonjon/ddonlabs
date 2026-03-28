@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet for SEO
 import Section from '../components/Section';
 import { Mail, Monitor, Building2, Send, ArrowUpRight } from 'lucide-react';
 
@@ -22,6 +23,14 @@ const Contact: React.FC = () => {
 
   return (
     <div className="pb-20">
+      
+      {/* NEW: Contact Page SEO Payload */}
+      <Helmet>
+        <title>Contact ddonlabs | Start a Software or Venture Partnership</title>
+        <meta name="description" content="Engage ddonlabs for product engineering, technical due diligence, or cloud infrastructure. Based in Abuja, serving the global frontier." />
+        <link rel="canonical" href="https://ddonlabs.com/contact" />
+      </Helmet>
+
       <Section className="pt-48">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
           <div className="lg:col-span-5 reveal">

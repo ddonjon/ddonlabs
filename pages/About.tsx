@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet for SEO
 import { Award, Code, Zap, ArrowRight, Twitter, Linkedin, Github, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Section from '../components/Section';
@@ -66,6 +67,14 @@ const About: React.FC = () => {
 
   return (
     <div className="pb-20">
+      
+      {/* NEW: About Page SEO Payload */}
+      <Helmet>
+        <title>About ddonlabs | Venture Studio for High-Impact Software</title>
+        <meta name="description" content="Discover how ddonlabs architects high-fidelity digital products and spatial intelligence systems. Learn about our venture studio model and engineering doctrine." />
+        <link rel="canonical" href="https://ddonlabs.com/about" />
+      </Helmet>
+
       <style>{`
         .team-image {
           filter: grayscale(100%);

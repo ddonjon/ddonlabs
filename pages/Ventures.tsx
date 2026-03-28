@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet for SEO
 import Section from '../components/Section';
 import TiltCard from '../components/TiltCard';
 import { PLATFORMS } from '../constants';
@@ -25,6 +26,14 @@ const Ventures: React.FC = () => {
 
   return (
     <div className="pb-20">
+      
+      {/* NEW: Ventures Page SEO Payload */}
+      <Helmet>
+        <title>Ventures | Products, Systems, and Ventures by ddonlabs</title>
+        <meta name="description" content="Explore the ddonlabs portfolio. We build and scale technical ventures, digital infrastructure, and enterprise software ecosystems." />
+        <link rel="canonical" href="https://ddonlabs.com/ventures" />
+      </Helmet>
+
       <Section className="pt-48 pb-32">
         <div className="max-w-4xl reveal">
           <span className="text-metadata mb-8 block">Project Archive</span>

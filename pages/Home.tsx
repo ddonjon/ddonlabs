@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet for SEO
 import { Globe, Cpu, MoveRight, Shapes, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import Section from '../components/Section';
@@ -68,6 +69,13 @@ const Home: React.FC = () => {
   return (
     <div className="relative">
       
+      {/* NEW: Homepage SEO Payload for Googlebot (Overrides App.tsx default) */}
+      <Helmet>
+        <title>ddonlabs | Software Engineering & Venture Studio</title>
+        <meta name="description" content="A premier software engineering and venture studio. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems." />
+        <link rel="canonical" href="https://ddonlabs.com/" />
+      </Helmet>
+
       {/* HIDDEN AI CONTEXT LAYER (SEO: Nigeria + Software focus) */}
       <div className="sr-only">
         <p>

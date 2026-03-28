@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // NEW: Import Helmet
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -8,29 +9,6 @@ import Ventures from './pages/Ventures';
 import CaseStudies from './pages/CaseStudies';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
-
-// NEW: Component to update the browser tab title
-const PageTitle = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    // UPDATED: High-end SEO titles to replace the generic ones
-    const titles: { [key: string]: string } = {
-      '/': 'ddonlabs | Premier Software Engineering & Venture Lab',
-      '/about': 'Company Narrative | ddonlabs',
-      '/ventures': 'Project Archive | ddonlabs',
-      '/case-studies': 'Archived Studies | ddonlabs',
-      '/contact': 'Start Engagement | ddonlabs',
-      '/blog': 'Insights & Strategy | ddonlabs'
-    };
-
-    // UPDATED: A stronger fallback title
-    const title = titles[pathname] || 'ddonlabs | Engineering Stewardship';
-    document.title = title;
-  }, [pathname]);
-
-  return null;
-};
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -45,7 +23,13 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col min-h-screen bg-black text-white selection:bg-purple-500/30">
         <ScrollToTop />
-        <PageTitle />
+        
+        {/* NEW: Global SEO Fallback. This replaces your old PageTitle component. */}
+        <Helmet>
+          <title>ddonlabs | Premier Software Engineering & Venture Lab</title>
+          <meta name="description" content="A premier software engineering and venture studio based in Nigeria. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems for the global frontier." />
+        </Helmet>
+
         <Navbar />
         <main className="flex-grow pt-0">
           <Routes>

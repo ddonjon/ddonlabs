@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Helmet } from 'react-helmet-async'; // NEW
 import Section from '../components/Section';
 import { Clock, Lock, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,13 @@ import { Link } from 'react-router-dom';
 const CaseStudies: React.FC = () => {
   return (
     <div className="pb-20 min-h-screen flex items-center relative overflow-hidden">
+      
+      {/* NEW: Tell Google to ignore this page until it is finished */}
+      <Helmet>
+        <title>Case Studies | ddonlabs (Coming Soon)</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+
       <div className="absolute top-0 left-0 w-full h-full bg-radial-main opacity-50 pointer-events-none" />
       
       <Section className="pt-40 text-center relative z-10">
