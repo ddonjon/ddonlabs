@@ -27,11 +27,31 @@ const Ventures: React.FC = () => {
   return (
     <div className="pb-20">
       
-      {/* NEW: Ventures Page SEO Payload */}
+      {/* NEW: Ventures Page SEO Payload & Breadcrumb Schema */}
       <Helmet>
         <title>Ventures | Products, Systems, and Ventures by ddonlabs</title>
         <meta name="description" content="Explore the ddonlabs portfolio. We build and scale technical ventures, digital infrastructure, and enterprise software ecosystems." />
         <link rel="canonical" href="https://ddonlabs.com/ventures" />
+        {/* NEW: Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ddonlabs.com"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Ventures",
+                "item": "https://ddonlabs.com/ventures"
+              }]
+            }
+          `}
+        </script>
       </Helmet>
 
       <Section className="pt-48 pb-32">

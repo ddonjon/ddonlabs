@@ -69,11 +69,27 @@ const Home: React.FC = () => {
   return (
     <div className="relative">
       
-      {/* NEW: Homepage SEO Payload for Googlebot (Overrides App.tsx default) */}
+      {/* NEW: Homepage SEO Payload & WebSite Schema for Googlebot */}
       <Helmet>
         <title>ddonlabs | Software Engineering & Venture Studio</title>
         <meta name="description" content="A premier software engineering and venture studio. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems." />
         <link rel="canonical" href="https://ddonlabs.com/" />
+        {/* NEW: WebSite Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "ddonlabs",
+              "url": "https://ddonlabs.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://ddonlabs.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }
+          `}
+        </script>
       </Helmet>
 
       {/* HIDDEN AI CONTEXT LAYER (SEO: Nigeria + Software focus) */}

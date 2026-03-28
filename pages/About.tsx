@@ -68,11 +68,31 @@ const About: React.FC = () => {
   return (
     <div className="pb-20">
       
-      {/* NEW: About Page SEO Payload */}
+      {/* NEW: About Page SEO Payload & Breadcrumb Schema */}
       <Helmet>
         <title>About ddonlabs | Venture Studio for High-Impact Software</title>
         <meta name="description" content="Discover how ddonlabs architects high-fidelity digital products and spatial intelligence systems. Learn about our venture studio model and engineering doctrine." />
         <link rel="canonical" href="https://ddonlabs.com/about" />
+        {/* NEW: Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ddonlabs.com"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About ddonlabs",
+                "item": "https://ddonlabs.com/about"
+              }]
+            }
+          `}
+        </script>
       </Helmet>
 
       <style>{`
