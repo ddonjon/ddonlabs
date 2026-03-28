@@ -33,6 +33,10 @@
       "/about",
       "/ventures",
       "/contact"
+    ],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
     ]
   }
 }
