@@ -9,7 +9,7 @@ const NannimNansoh: React.FC = () => {
       
       {/* THE ENTITY PAYLOAD */}
       <Helmet>
-        <title>Nannim Nansoh Jonathan | CEO & Cloud Engineer at ddonlabs</title>
+        <title>Nannim Nansoh</title>
         <meta name="description" content="Founder and CEO of ddonlabs. Specializing in AWS Cloud, DevOps engineering, and spatial data systems." />
         <link rel="canonical" href="https://ddonlabs.com/team/nannim-nansoh" />
         

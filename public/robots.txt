@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
+# Point Google directly to your map
 Sitemap: https://ddonlabs.com/sitemap.xml

@@ -14,8 +14,8 @@ import Blog from './pages/Blog';
 
 // Entity Pages
 import NannimNansoh from './pages/team/NannimNansoh';
-import MagitIsrael from './pages/team/MagitIsrael'; // NEW
-import SimonSunday from './pages/team/SimonSunday'; // NEW
+import MagitIsrael from './pages/team/MagitIsrael'; 
+import SimonSunday from './pages/team/SimonSunday'; 
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,9 +31,13 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen bg-black text-white selection:bg-purple-500/30">
         <ScrollToTop />
         
-        <Helmet>
-          <title>ddonlabs | Premier Software Engineering & Venture Lab</title>
+        {/* GLOBAL SEO CONFIG: Fixed for Entity Clarity */}
+        <Helmet 
+          titleTemplate="%s | ddonlabs" 
+          defaultTitle="ddonlabs | Premier Software Engineering & Venture Lab"
+        >
           <meta name="description" content="A premier software engineering and venture studio based in Nigeria. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems for the global frontier." />
+          <meta property="og:site_name" content="ddonlabs" />
         </Helmet>
 
         <Navbar />

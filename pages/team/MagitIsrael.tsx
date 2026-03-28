@@ -9,7 +9,7 @@ const MagitIsrael: React.FC = () => {
       
       {/* THE ENTITY PAYLOAD */}
       <Helmet>
-        <title>Magit Israel Bamshak | Project Manager at ddonlabs</title>
+        <title>Magit Israel Bamshak</title>
         <meta name="description" content="Expert project manager at ddonlabs with a robust background in Cybersecurity, ensuring structural integrity and operational excellence." />
         <link rel="canonical" href="https://ddonlabs.com/team/magit-israel" />
         
