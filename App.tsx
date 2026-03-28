@@ -31,12 +31,12 @@ const App: React.FC = () => {
       <div className="flex flex-col min-h-screen bg-black text-white selection:bg-purple-500/30">
         <ScrollToTop />
         
-        {/* GLOBAL SEO CONFIG: Fixed for Entity Clarity */}
-        <Helmet 
-          titleTemplate="%s | ddonlabs" 
-          defaultTitle="ddonlabs | Premier Software Engineering & Venture Lab"
-        >
-          <meta name="description" content="A premier software engineering and venture studio based in Nigeria. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems for the global frontier." />
+        {/* GLOBAL SEO CONFIG */}
+        {/* We remove the titleTemplate here to prevent it from fighting with the 
+            explicit titles we just wrote in your team pages. */}
+        <Helmet>
+          <title>ddonlabs | Premier Software Engineering & Venture Lab</title>
+          <meta name="description" content="A premier software engineering and venture studio. We architect high-fidelity digital products, cloud ecosystems, and spatial intelligence systems for the global frontier." />
           <meta property="og:site_name" content="ddonlabs" />
         </Helmet>
 

@@ -9,7 +9,8 @@ const SimonSunday: React.FC = () => {
       
       {/* THE ENTITY PAYLOAD */}
       <Helmet>
-        <title>Simon Sunday Chigozie</title>
+        {/* FIX: Explicit title for reliability */}
+        <title>Simon Sunday Chigozie | ddonlabs</title>
         <meta name="description" content="High-fidelity UI/UX specialist and web developer at ddonlabs, focused on architecting seamless digital experiences." />
         <link rel="canonical" href="https://ddonlabs.com/team/simon-sunday" />
         

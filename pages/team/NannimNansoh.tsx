@@ -9,11 +9,12 @@ const NannimNansoh: React.FC = () => {
       
       {/* THE ENTITY PAYLOAD */}
       <Helmet>
-        <title>Nannim Nansoh</title>
+        {/* FIX: Using explicit title to guarantee "Nannim Nansoh | ddonlabs" appears in the tab */}
+        <title>Nannim Nansoh | ddonlabs</title>
         <meta name="description" content="Founder and CEO of ddonlabs. Specializing in AWS Cloud, DevOps engineering, and spatial data systems." />
         <link rel="canonical" href="https://ddonlabs.com/team/nannim-nansoh" />
         
-        {/* NEW: Person Schema explicitly linking you to the internet */}
+        {/* Structured Data for Google Entity Recognition */}
         <script type="application/ld+json">
           {`
             {
@@ -29,7 +30,8 @@ const NannimNansoh: React.FC = () => {
               "sameAs": [
                 "https://linkedin.com/in/nannim-nansoh",
                 "https://twitter.com/ddonjon007",
-                "https://github.com/ddonjon"
+                "https://github.com/ddonjon",
+                "https://www.facebook.com/share/1GWjzXmiSV/?mibextid=wwXIfr"
               ]
             }
           `}
@@ -39,9 +41,12 @@ const NannimNansoh: React.FC = () => {
       <Section className="pt-48 pb-20 border-b border-white/5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-4">
-             {/* Use a high-quality, professional headshot here */}
             <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10">
-              <img src="/nannim-nansoh.jpeg" alt="Nannim Nansoh Jonathan" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+              <img 
+                src="/nannim-nansoh.jpeg" 
+                alt="Nannim Nansoh Jonathan" 
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              />
             </div>
           </div>
           
@@ -62,7 +67,6 @@ const NannimNansoh: React.FC = () => {
               <a href="https://twitter.com/ddonjon007" target="_blank" rel="noreferrer" className="text-white/40 hover:text-blue-400 transition-colors">
                 <Twitter size={24} />
               </a>
-              {/* NEW: Facebook Link */}
               <a href="https://www.facebook.com/share/1GWjzXmiSV/?mibextid=wwXIfr" target="_blank" rel="noreferrer" className="text-white/40 hover:text-blue-600 transition-colors">
                 <Facebook size={24} />
               </a>
